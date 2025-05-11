@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Flowchart</title>
+    <style>
+        .flowchart-container {
+            font-family: Arial, sans-serif;
+        }
+        .node {
+            background-color: #f4f4f4; /* Light Gray background */
+            border: 2px solid #003366; /* Dark Blue border */
+            color: #003366; /* Dark Blue text */
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .highlighted {
+            background-color: #e6f7ff; /* Light Blue background */
+        }
+        .edge-label {
+            background-color: #ffffff; /* White background for edge labels */
+            border: 1px solid #003366; /* Dark Blue border */
+            color: #003366; /* Dark Blue text */
+            padding: 2px 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flowchart-container">
+        <div class="node">Admin Logs In</div>
+        <div class="node">Create New Project</div>
+        <div class="node">Generate Project ID</div>
+        <div class="node">Assign Researchers & Send Credentials</div>
+        <div class="node">Researcher Logs In</div>
+        <div class="node">Update Project & Upload Reports</div>
+        <div class="node">Review Submission</div>
+        <div class="node highlighted">Submission Complete?</div>
+        <div class="node">Project Approved & Closed</div>
+        <div class="node">Send Update Reminders</div>
+        <div class="node">Researcher Resubmits Reports</div>
+        <div class="node">Request Corrections</div>
+    </div>
+</body>
+</html>
