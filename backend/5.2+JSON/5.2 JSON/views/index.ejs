@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Taco Recipes</title>
+  <link rel="stylesheet" type="text/css" href="/styles/main.css">
+</head>
+
+<body>
+  <h1>Taco Town 🌮</h1>
+
+  <!-- Form for selecting a recipe -->
+  <form action="/recipe" method="POST" class="buttons">
+    <button type="submit" value="chicken" name="choice">🍗 Chicken Taco</button>
+    <button type="submit" value="beef" name="choice">🥩 Beef Taco</button>
+    <button type="submit" value="fish" name="choice">🐟 Fish Taco</button>
+  </form>
+
+  <!-- Recipe display container -->
+  <div id="recipeContainer">
+    <% if (recipe) { %> <!-- Check if a recipe is available -->
+      <h2 id="recipeTitle"><%= recipe.name %></h2>
+      <p><strong>Price:</strong> $<%= recipe.price.toFixed(2) %></p>
+
+      <h3>Ingredients:</h3>
+      <ul id="ingredientsList">
+        <!-- Display protein -->
+        <li>
+          <strong>Protein:</strong> <%= recipe.ingredients.protein.name %>, 
+          <em><%= recipe.ingredients.protein.preparation %></em>
+        </li>
+        <!-- Display salsa -->
+        <li>
+          <strong>Salsa:</strong> <%= recipe.ingredients.salsa.name %> 
+          (<%= recipe.ingredients.salsa.spiciness %>)
+        </li>
+        <!-- Display toppings -->
+        <% recipe.ingredients.toppings.forEach(topping => { %>
+          <li>
+            <strong><%= topping.name %>:</strong> <%= topping.quantity %> 
+            (Ingredients: <%= topping.ingredients.join(", ") %>)
+          </li>
+        <% }); %>
+      </ul>
+    <% } else { %>
+      <!-- Display this if no recipe is selected -->
+      <h2>Pick your favourite taco ingredient 👆</h2>
+    <% } %>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <h1>Welcome to My Blog</h1>
+
+  <!-- Display all posts -->
+  <div id="posts">
+    <% if (posts.length > 0) { %>
+      <ul>
+        <% posts.forEach(function(post, index) { %>
+          <li>
+            <h2><%= post.title %></h2>
+            <p><%= post.content %></p>
+
+            <!-- Delete Post Form -->
+            <form action="/delete" method="POST" style="display:inline;">
+              <input type="hidden" name="postId" value="<%= index %>">
+              <button type="submit">Delete</button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>No posts yet!</p>
+    <% } %>
+  </div>
+
+  <!-- Form to create a new post -->
+  <form action="/submit" method="POST">
+    <input type="text" name="title" placeholder="Post title" required>
+    <textarea name="content" placeholder="Write a new post" required></textarea>
+    <button type="submit">Add Post</button>
+  </form>
+
+</body>
+</html>
